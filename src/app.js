@@ -20,7 +20,7 @@ clear.addEventListener("click", () => {
     Users.getUsers();
     Pagination.renderPages();
     Sort.renderFilters();
-    Input.value = ""
+    Input.input.value = ""
 });
 
 

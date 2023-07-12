@@ -6,9 +6,9 @@ import { debounce } from "../../utils/utils";
 class Search {
     constructor() {
         this.input = document.getElementById("search-input");
-        this.addInputHandler();
+        this.addInputHandler()
     }
-
+    
     addInputHandler() {
         this.input.addEventListener("input", async (event) => {
             state.setSearch(event.target.value);
@@ -17,15 +17,15 @@ class Search {
                 Users.getUsers();
                 Pagination.renderPages();
             }
-
+        
             let refetch = debounce(Handler, 500);
             refetch();
         });
     }
-
     clearValue() {
-        this.input.value = "";
+        this.input.value = ""
     }
+    
 }
 
-export const Input = new Search();
+export const Input = new Search
