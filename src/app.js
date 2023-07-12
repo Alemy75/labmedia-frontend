@@ -7,8 +7,6 @@ import state from "./store/store";
 
 const clear = document.getElementById("clear");
 
-console.log(clear);
-
 window.addEventListener("load", () => {
     Users.getUsers();
     Pagination.renderPages();
@@ -16,7 +14,7 @@ window.addEventListener("load", () => {
 });
 
 clear.addEventListener("click", () => {
-    state.setDefault();
+    state.setPage(1);
     Users.getUsers();
     Pagination.renderPages();
     Sort.renderFilters();

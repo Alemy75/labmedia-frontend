@@ -26,13 +26,6 @@ class Store {
     setOrder(payload) {
         this.order = payload
     }
-    
-    setDefault() {
-        this.page = 1
-        this.search = ""
-        this.sort = 'registration_date'
-        this.order = true
-    }
 }
 
 const state = new Store()
