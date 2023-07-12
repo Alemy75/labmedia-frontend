@@ -2,23 +2,20 @@ import "./style.css";
 import { Users } from "./components/Users";
 import { Pagination } from "./components/Pagination";
 import { debounce } from "./utils";
+import state from "./store";
 
 const input = document.getElementById("search-input");
 
 window.addEventListener("load", () => {
-    window.state = {
-        page: 1,
-        search: "",
-    };
-    Users.getUsers(state);
+    Users.getUsers();
     Pagination.renderPages();
 });
 
 input.addEventListener("input", async (event) => {
-    window.state.search = event.target.value;
+    state.setSearch(event.target.value);
     function Handler() {
         Pagination.renderPages();
-        Users.getUsers(state)       
+        Users.getUsers()       
     }
 
     let refetch = debounce(Handler, 500);
