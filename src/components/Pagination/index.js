@@ -1,10 +1,10 @@
-import { api } from "../../api";
+import UserService from "../../api/api";
 import { Users } from "../Users";
-import state from "../../store";
+import state from "../../store/store";
 
 export class Pagination {
     static async renderPages() {
-        const pages = await api.fetchPages(5);
+        const pages = await UserService.fetchPages(5);
         const pagination = document.getElementById("pagination");
         let html = pages.map((page) => `<li class="dot">${page}</li>`).join("");
         pagination.innerHTML = html;

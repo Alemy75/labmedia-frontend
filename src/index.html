@@ -36,12 +36,11 @@
                         </svg>
                         <input
                             type="text"
-                            value=""
                             id="search-input"
                             placeholder="Введите email или никнейм"
                         />
                     </div>
-                    <div class="search__filter">
+                    <div id="clear" class="search__filter">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -74,12 +73,12 @@
                 </div>
             </div>
             <!-- Сортировка -->
-            <div class="sort">
+            <div id="sort" class="sort">
                 <span class="sort__label">Сортировка:</span>
-                <span class="sort__item sort__item_active">
+                <!-- <span class="sort__item sort__item_active">
                     Дате регистрации
                 </span>
-                <span class="sort__item sort__item_active"> Рейтингу </span>
+                <span class="sort__item sort__item_active">Рейтингу</span> -->
             </div>
             <!-- Список пользователей -->
             <div class="users shadow">
@@ -93,44 +92,13 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody id="users-list">
-                        <tr>
-                            <td class="blue">Имя</td>
-                            <td>Почта</td>
-                            <td>Дата</td>
-                            <td>Рейтинг</td>
-                            <td class="delete">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                    fill="none"
-                                >
-                                    <path
-                                        d="M1.63499 1.66666L12.3132 12.3333"
-                                        stroke="black"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                    />
-                                    <path
-                                        d="M1.63499 12.3333L12.3132 1.66665"
-                                        stroke="black"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                    />
-                                </svg>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody id="users-list"></tbody>
                 </table>
             </div>
             <!-- Пагинация -->
             <div class="pagination">
                 <ul id="pagination">
                     <li class="current">1</li>
-                    <li>2</li>
-                    <li>3</li>
                 </ul>
             </div>
         </div>

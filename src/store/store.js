@@ -3,6 +3,8 @@ class Store {
         this.page = 1
         this.search = ""
         this.users = []
+        this.sort = 'registration_date'
+        this.order = true
     }
 
     setPage(payload) {
@@ -15,6 +17,21 @@ class Store {
 
     setUsers(payload) {
         this.users = payload
+    }
+
+    setSort(payload) {
+        this.sort = payload
+    }
+
+    setOrder(payload) {
+        this.order = payload
+    }
+    
+    setDefault() {
+        this.page = 1
+        this.search = ""
+        this.sort = 'registration_date'
+        this.order = true
     }
 }
 
