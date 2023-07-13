@@ -4,14 +4,28 @@ class Store {
         this.filterButton = document.getElementById("clear")
         this.page = 1;
         this.search = "";
+        // Резерв массива загруженного, он используется при поиске, если сбрасываем запрос
+        this.temp = []
         this.users = [];
-        this.filteredUsers;
-        this.sort = "registration_date";
+        this.filteredUsers = [];
+        this.sortingField = "registration_date";
+        // true - desc, false asc
         this.order = true;
         this.userId = null;
         this.attemps = 0;
     }
 
+    setTemp(payload) {
+        this.temp = payload
+    }
+
+    setUsers(payload) {
+        this.users = payload;
+    }
+
+    setFilteredUsers(payload) {
+        this.filteredUsers = payload;
+    }
     setUserId(payload) {
         this.userId = payload
     }
@@ -24,26 +38,19 @@ class Store {
         this.search = payload;
     }
 
-    setUsers(payload) {
-        this.users = payload;
-    }
-
-    setFilteredUsers(payload) {
-        this.filteredUsers = payload;
-    }
-
-    setSort(payload) {
-        this.sort = payload;
+    setSortingField(payload) {
+        this.sortingField = payload;
     }
 
     setOrder(payload) {
         this.order = payload;
     }
-
+    
     setDefault() {
+        this.users = this.temp
         this.page = 1;
         this.search = ""
-        this.order = "desc"
+        this.order = true
         this.sort = "registration_date"
         this.userId = null
     }

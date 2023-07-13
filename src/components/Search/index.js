@@ -1,7 +1,7 @@
 import state from "../../store/store";
 import { Users } from "../Users";
 import { Pagination } from "../Pagination";
-import { debounce } from "../../utils/utils";
+import { Utils } from "../../utils/utils";
 
 class Search {
     constructor() {
@@ -11,19 +11,14 @@ class Search {
 
     addInputHandler() {
         this.input.addEventListener("input", async (event) => {
+            state.setPage(1)
+            state.setAttemps(state.attemps + 1)
             state.setSearch(event.target.value);
-            function Handler() {
-                state.setAttemps(state.attemps + 1)
-                if (state.attemps > 5) {
-                    state.filterButton.classList.add("search__filter_active")
-                }
-                state.setPage(1);
-                Users.getUsers();
-                Pagination.renderPages();
-            }
-
-            let refetch = debounce(Handler, 500);
-            refetch();
+            Utils.search(event.target.value)
+            Utils.calculatePagination()
+            Pagination.renderPagination()
+            Users.renderUsers()
+            console.log(state.users, state.filteredUsers)            
         });
     }
     clearValue() {

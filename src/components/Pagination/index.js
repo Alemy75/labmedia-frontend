@@ -1,10 +1,11 @@
-import UserService from "../../api/api";
 import { Users } from "../Users";
 import state from "../../store/store";
 
 export class Pagination {
-    static async renderPages() {
-        const pages = await UserService.fetchPages(5);
+    static renderPagination() {
+        let pages = state.filteredUsers.length
+            ? state.filteredUsers.map((_,index) => index + 1)
+            : [1]
         const pagination = document.getElementById("pagination");
         let html = pages.map((page) => `<li class="dot">${page}</li>`).join("");
         pagination.innerHTML = html;
@@ -17,13 +18,13 @@ export class Pagination {
             pageButtons[0].classList.add("blue");
             pageButtons.forEach((page, index) => {
                 page.addEventListener("click", () => {
-                    this.setPages(index + 1);
+                    this.setPage(index + 1)                   
                 });
             });
         }
     }
 
-    static setPages(pageNumber) {
+    static setPage(pageNumber) {
         const pageButtons = document.querySelectorAll(".dot");
         state.setPage(pageNumber);
         pageButtons.forEach((page, index) => {
@@ -33,6 +34,6 @@ export class Pagination {
                 page.classList.remove("blue");
             }
         });
-        Users.getUsers();
+        Users.renderUsers()
     }
 }

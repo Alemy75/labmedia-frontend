@@ -31,27 +31,22 @@ export class Sort {
         const sortButtons = document.querySelectorAll(".sort__item");
         sortButtons[0].classList.add("sort__item_active");
         sortButtons.forEach((item) => {
-            const foundElement = filters.find(
-                (obj) =>
-                    obj.title ==
-                    item.textContent.toString().trimStart().trimEnd()
+            const foundElement = filters.find((obj) => obj.title == item.textContent.toString().trimStart().trimEnd()
             );
             item.addEventListener("click", () => {
-                state.setAttemps(state.attemps + 1)
-                if (state.attemps > 5) {
-                    state.filterButton.classList.add("search__filter_active")
-                }
-                state.setOrder(true);
-                if (state.sort == foundElement.type) {
+                if (state.sortingField == foundElement.type) {
                     state.setOrder(!state.order);
+                } else {
+                    state.setOrder(true)
+                    state.setSortingField(foundElement.type);
                 }
                 sortButtons.forEach((el) =>
                     el.classList.remove("sort__item_active")
                 );
                 item.classList.add("sort__item_active");
-                state.setSort(foundElement.type);
-
-                Users.getUsers();
+                
+                state.setAttemps(state.attemps + 1)
+                Users.renderUsers();
             });
         });
     }

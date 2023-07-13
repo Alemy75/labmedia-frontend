@@ -124,6 +124,7 @@ h1 {
 
 .sort__item {
     cursor: pointer;
+    user-select: none;
     color: #9eaab4;
     border-bottom: 1.5px dashed #9eaab4;
 }

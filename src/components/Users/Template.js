@@ -1,5 +1,3 @@
-import state from "../../store/store";
-
 export const Template = (user) => {
     let formattedDate = new Date(user.registration_date).toLocaleDateString(
         "ru-RU"
