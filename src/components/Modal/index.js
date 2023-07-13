@@ -14,13 +14,9 @@ export class Modal {
             state.setTemp(state.temp.filter((user) => user.id != state.userId));
             state.modal.classList.remove("modal_active");
             state.userId = null;
-            let tempPage = state.page
+            state.setPage(1)
             Utils.calculatePagination();
             Pagination.renderPagination();
-            // Тут если при удалении был последний элем на страничке, то страничку ставим на 1 меньше
-            if (!state.filteredUsers[tempPage]) {
-                Pagination.setPage(tempPage - 1)
-            }
             Users.renderUsers();
         });
         buttonDeny.addEventListener("click", () => {
