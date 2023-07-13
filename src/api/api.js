@@ -17,7 +17,7 @@ class UserApi {
     async fetchPages(limit) {
         const response = await fetch(
             BASE + "?" + this.getParams().substring(1)
-        ); // Замените URL на вашу конечную точку API
+        );
         const data = await response.json();
         const pageCount = Math.ceil(data.length / limit);
         const pageNumbers = Array.from({ length: pageCount }, (_, i) => i + 1);

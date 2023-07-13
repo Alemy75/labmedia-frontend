@@ -29,7 +29,7 @@ export class Sort {
 
     static addClickHandlers() {
         const sortButtons = document.querySelectorAll(".sort__item");
-        sortButtons[0].classList.add("sort__item_active")
+        sortButtons[0].classList.add("sort__item_active");
         sortButtons.forEach((item) => {
             const foundElement = filters.find(
                 (obj) =>
@@ -37,6 +37,10 @@ export class Sort {
                     item.textContent.toString().trimStart().trimEnd()
             );
             item.addEventListener("click", () => {
+                state.setAttemps(state.attemps + 1)
+                if (state.attemps > 5) {
+                    state.filterButton.classList.add("search__filter_active")
+                }
                 state.setOrder(true);
                 if (state.sort == foundElement.type) {
                     state.setOrder(!state.order);

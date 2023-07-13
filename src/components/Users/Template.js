@@ -1,15 +1,20 @@
+import state from "../../store/store";
+
 export const Template = (user) => {
     let formattedDate = new Date(user.registration_date).toLocaleDateString(
         "ru-RU"
     );
+
     return `
     <tr>
+        <script></script>
         <td class="blue">${user.username}</td>
         <td>${user.email}</td>
         <td>${formattedDate}</td>
         <td>${user.rating}</td>
-        <td class="delete">
+        <td id="delete-${user.id}" class="delete-button">
             <svg
+                onclick=""
                 xmlns="http://www.w3.org/2000/svg"
                 width="14"
                 height="14"
