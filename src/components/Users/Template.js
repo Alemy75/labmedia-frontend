@@ -5,7 +5,6 @@ export const Template = (user) => {
 
     return `
     <tr>
-        <script></script>
         <td class="blue">${user.username}</td>
         <td>${user.email}</td>
         <td>${formattedDate}</td>

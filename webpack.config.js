@@ -17,7 +17,7 @@ module.exports = {
       },
       {
         test: /\.css$/, // Расширение файлов для обработки
-        use: ['style-loader', 'css-loader'] // Использовать style-loader и css-loader для обработки CSS файлов
+        use: ['style-loader', 'css-loader', 'postcss-loader'] // Использовать style-loader и css-loader для обработки CSS файлов
       }
     ]
   },
@@ -25,6 +25,7 @@ module.exports = {
     new CleanWebpackPlugin(), // Очистить папку dist при каждой сборке
     new HtmlWebpackPlugin({
       template: './src/index.html' // Путь к HTML-шаблону
-    })
+    }),
+    require('autoprefixer')
   ]
 };

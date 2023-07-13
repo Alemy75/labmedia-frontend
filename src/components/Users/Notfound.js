@@ -1,5 +1,7 @@
 export const NotFound = () => {
     return `
-    <div class="blue not-found">Ничего не было найдено по вашему запросу</div>
+    <tr>
+        <td class="blue" cosplan="5">Ничего не было найдено по вашему запросу</td>      
+    </tr>
    `;
 };

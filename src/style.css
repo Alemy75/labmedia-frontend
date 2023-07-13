@@ -30,8 +30,8 @@ h1 {
     margin: 0 auto;
     max-width: 100%;
     @media (max-width: 961px) {
-        width: 94%;
-        margin: 0 3%px;
+        width: calc(100% - 20px);
+        margin: 0 10px;
     }
 }
 
@@ -179,6 +179,15 @@ table.users__table td {
     font-size: 12px;
     color: #acacac;
 }
+
+table.users__table td:not(:last-child) {
+    padding-right: 14px;
+}
+
+table.users__table th:not(:last-child) {
+    padding-right: 14px;
+}
+
 
 table.users__table svg {
     cursor: pointer;
